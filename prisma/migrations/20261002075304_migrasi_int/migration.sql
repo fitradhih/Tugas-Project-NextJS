@@ -1,0 +1,20 @@
+/*
+  Warnings:
+
+  - The primary key for the `Movie` table will be changed. If it partially fails, the table could be left without primary key constraint.
+  - The `id` column on the `Movie` table would be dropped and recreated. This will lead to data loss if there is data in the column.
+  - The primary key for the `Shows` table will be changed. If it partially fails, the table could be left without primary key constraint.
+  - The `id` column on the `Shows` table would be dropped and recreated. This will lead to data loss if there is data in the column.
+
+*/
+-- AlterTable
+ALTER TABLE "Movie" DROP CONSTRAINT "Movie_pkey",
+DROP COLUMN "id",
+ADD COLUMN     "id" SERIAL NOT NULL,
+ADD CONSTRAINT "Movie_pkey" PRIMARY KEY ("id");
+
+-- AlterTable
+ALTER TABLE "Shows" DROP CONSTRAINT "Shows_pkey",
+DROP COLUMN "id",
+ADD COLUMN     "id" SERIAL NOT NULL,
+ADD CONSTRAINT "Shows_pkey" PRIMARY KEY ("id");
